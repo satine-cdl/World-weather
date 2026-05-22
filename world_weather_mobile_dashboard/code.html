@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WORLD WEATHER - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffe089",
+                    "primary-fixed-dim": "#75d9b2",
+                    "error": "#ba1a1a",
+                    "surface-container": "#efeee9",
+                    "on-primary-container": "#dcffed",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-primary-fixed-variant": "#00513b",
+                    "secondary-fixed": "#ffd8e6",
+                    "surface-container-low": "#f5f4ef",
+                    "outline": "#6e7a73",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e3e3de",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e3e3de",
+                    "inverse-primary": "#75d9b2",
+                    "primary": "#00664b",
+                    "primary-container": "#008160",
+                    "surface-dim": "#dbdad5",
+                    "surface-tint": "#006c50",
+                    "on-secondary-fixed": "#3d0023",
+                    "surface-container-high": "#e9e8e3",
+                    "on-tertiary-fixed": "#241a00",
+                    "tertiary-container": "#d0a600",
+                    "secondary": "#a0366c",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#821c54",
+                    "tertiary": "#735c00",
+                    "surface": "#faf9f4",
+                    "on-secondary-container": "#78134c",
+                    "on-primary-fixed": "#002116",
+                    "on-surface": "#1b1c19",
+                    "secondary-fixed-dim": "#ffb0d0",
+                    "outline-variant": "#bdc9c2",
+                    "background": "#faf9f4",
+                    "inverse-surface": "#30312e",
+                    "primary-fixed": "#91f6ce",
+                    "surface-bright": "#faf9f4",
+                    "on-background": "#1b1c19",
+                    "secondary-container": "#fe82bb",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#4f3d00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#f0c100",
+                    "on-surface-variant": "#3e4943"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-margin": "24px",
+                    "section-gap": "40px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "label-bold": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-xl": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .jagged-star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background-color: #E36CA4;
+        }
+        .jagged-bubble {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 95% 85%, 90% 100%, 85% 85%, 0% 85%);
+            padding-bottom: 2rem;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .neo-button-press:active {
+            transform: translate(2px, 2px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim border-b-2 border-outline dark:border-outline-variant fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-container-margin py-4 w-full max-w-[1280px] mx-auto">
+<button class="text-primary dark:text-primary-fixed-dim active:translate-x-1 active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-xl text-headline-xl uppercase tracking-tighter text-primary dark:text-primary-fixed-dim">WORLD WEATHER</h1>
+<button class="text-primary dark:text-primary-fixed-dim active:translate-x-1 active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+<!-- Fixed Search Bar Attachment -->
+<div class="px-container-margin pb-4">
+<div class="flex items-center bg-surface-container-low border-2 border-outline rounded-full px-4 py-2 hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md text-on-surface" placeholder="Enter any city..." type="text"/>
+</div>
+</div>
+</header>
+<main class="mt-40 px-container-margin">
+<!-- Main Hero Section -->
+<section class="flex flex-col items-center mb-section-gap py-8 bg-primary-container/10 rounded-xl border-2 border-primary/20">
+<h2 class="font-headline-xl text-headline-xl text-primary">LONDON</h2>
+<div class="flex items-center gap-4 mt-2">
+<span class="font-display-lg text-display-lg text-on-surface">18°C</span>
+<span class="material-symbols-outlined text-[80px] text-tertiary-container" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+</div>
+<!-- Air Quality Star -->
+<div class="mt-6 flex items-center gap-3">
+<div class="w-12 h-12 flex items-center justify-center jagged-star">
+<span class="material-symbols-outlined text-white" data-icon="eco">eco</span>
+</div>
+<span class="font-label-bold text-label-bold text-secondary">Air Quality: Fair</span>
+</div>
+</section>
+<!-- Hourly Forecast (Horizontal Scroll) -->
+<section class="mb-section-gap">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4">HOURLY FORECAST</h3>
+<div class="flex overflow-x-auto no-scrollbar gap-4 pb-2">
+<!-- Forecast Cards -->
+<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+<span class="font-label-bold text-label-bold">Now</span>
+<span class="material-symbols-outlined text-tertiary my-2" data-icon="partly_sunny">partly_cloudy_day</span>
+<span class="font-body-lg text-body-lg">18°</span>
+</div>
+<div class="min-w-[100px] flex flex-col items-center p-4 bg-primary-container text-on-primary-container border-2 border-primary rounded-xl">
+<span class="font-label-bold text-label-bold">14:00</span>
+<span class="material-symbols-outlined my-2" data-icon="sunny" style="font-variation-settings: 'FILL' 1;">sunny</span>
+<span class="font-body-lg text-body-lg">20°</span>
+</div>
+<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl">
+<span class="font-label-bold text-label-bold">15:00</span>
+<span class="material-symbols-outlined text-tertiary my-2" data-icon="sunny">sunny</span>
+<span class="font-body-lg text-body-lg">21°</span>
+</div>
+<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl">
+<span class="font-label-bold text-label-bold">16:00</span>
+<span class="material-symbols-outlined text-tertiary my-2" data-icon="cloud">cloud</span>
+<span class="font-body-lg text-body-lg">19°</span>
+</div>
+<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl">
+<span class="font-label-bold text-label-bold">17:00</span>
+<span class="material-symbols-outlined text-tertiary my-2" data-icon="rainy">rainy</span>
+<span class="font-body-lg text-body-lg">17°</span>
+</div>
+</div>
+</section>
+<!-- Data Grid (Bento Style) -->
+<div class="grid grid-cols-2 gap-4 mb-section-gap">
+<!-- UV Index -->
+<div class="bg-secondary-fixed p-container-margin rounded-xl border-2 border-secondary/20 flex flex-col items-center justify-between min-h-[200px]">
+<h4 class="font-label-bold text-label-bold text-on-secondary-fixed-variant uppercase">UV Index</h4>
+<div class="relative w-24 h-24">
+<!-- Simple Doughnut Simulation -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-secondary/10" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="100" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile">6</span>
+</div>
+</div>
+<p class="font-label-bold text-label-bold text-secondary">High</p>
+</div>
+<!-- Humidity -->
+<div class="bg-tertiary-fixed p-container-margin rounded-xl border-2 border-tertiary/20 flex flex-col items-center justify-between min-h-[200px]">
+<h4 class="font-label-bold text-label-bold text-on-tertiary-fixed-variant uppercase">Humidity</h4>
+<div class="relative w-24 h-24">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-tertiary/10" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-tertiary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="88" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile">65%</span>
+</div>
+</div>
+<p class="font-label-bold text-label-bold text-tertiary">Normal</p>
+</div>
+<!-- Wind Speed & More List (Full Width Span) -->
+<div class="col-span-2 bg-surface-container-high p-container-margin rounded-xl border-2 border-outline">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="air">air</span>
+<span class="font-label-bold text-label-bold uppercase">Wind Speed</span>
+</div>
+<span class="font-body-lg text-body-lg font-bold">12 km/h NW</span>
+</div>
+<div class="h-[1px] bg-outline-variant mb-4"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+<span class="font-label-bold text-label-bold uppercase">Visibility</span>
+</div>
+<span class="font-body-lg text-body-lg font-bold">10 km</span>
+</div>
+</div>
+</div>
+<!-- Climate Fact Bubble -->
+<section class="mb-section-gap">
+<div class="bg-primary-fixed p-6 jagged-bubble border-2 border-primary/30">
+<p class="font-label-bold text-label-bold text-on-primary-fixed mb-2 uppercase">Climate Fact</p>
+<p class="font-body-lg text-body-lg text-on-primary-fixed font-bold leading-tight">
+                    Arctic sea ice is declining at a rate of 12.6% per decade.
+                </p>
+</div>
+</section>
+<!-- Large Image Background Decoration -->
+<div class="w-full h-48 rounded-2xl overflow-hidden mb-section-gap border-2 border-outline relative">
+<img class="w-full h-full object-cover grayscale opacity-40" data-alt="A cinematic panoramic view of a modern cityscape under a dramatic sky with mixed sun and dark clouds. The lighting is high-energy and authoritative, with high contrast between the dark silhouettes of urban architecture and the bright, glowing elements of nature. The color palette reflects the clean off-white foundation of the app, accented by deep teals and sharp horizons." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmIdfLs573vFWut_X3BVQ_01zjng5ifqymixUKUh7j-f8McEhtc2feK_popCnujefXNE4um_OXL-1UDJiTYzWadhfGaVWFbb6lhvIdtWTqPQfPF15F9RdR7I4ObLkT6DSqF94_AilQPYUCAx4CPfBVFs14PIJpqdBn2xLl2LpWikgaOZ0zC_-OkrDy1XAOrxNZnQOFTF27xOQw4-cYwexdRL3NV0ioKD7W_T--MA4W13D-1qdqxAfNVCnZmd_-5FOFYbf2LcE6arU"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="bg-tertiary-container text-on-tertiary-container px-8 py-4 rounded-full font-headline-lg-mobile uppercase neo-button-press shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black">
+                    Check Climate Map
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim border-t-2 border-outline dark:border-outline-variant z-50">
+<button class="flex flex-col items-center justify-center bg-tertiary-container dark:bg-tertiary text-on-tertiary-container dark:text-on-tertiary rounded-xl p-2 border-2 border-outline active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+<span class="font-label-bold text-label-bold">Forecast</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="font-label-bold text-label-bold">Radar</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-bold text-label-bold">Alerts</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions and small parallax for the hero temperature
+        document.addEventListener('mousemove', (e) => {
+            const heroTemp = document.querySelector('.text-display-lg');
+            if(heroTemp) {
+                const x = (window.innerWidth / 2 - e.pageX) / 50;
+                const y = (window.innerHeight / 2 - e.pageY) / 50;
+                heroTemp.style.transform = `translate(${x}px, ${y}px)`;
+            }
+        });
+    </script>
+</body></html>

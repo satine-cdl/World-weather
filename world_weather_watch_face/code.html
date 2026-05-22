@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>World Weather - Watch Face</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#ffe089",
+                      "primary-fixed-dim": "#75d9b2",
+                      "error": "#ba1a1a",
+                      "surface-container": "#efeee9",
+                      "on-primary-container": "#dcffed",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "on-primary-fixed-variant": "#00513b",
+                      "secondary-fixed": "#ffd8e6",
+                      "surface-container-low": "#f5f4ef",
+                      "outline": "#6e7a73",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-error": "#ffffff",
+                      "surface-container-highest": "#e3e3de",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e3e3de",
+                      "inverse-primary": "#75d9b2",
+                      "primary": "#00664b",
+                      "primary-container": "#008160",
+                      "surface-dim": "#dbdad5",
+                      "surface-tint": "#006c50",
+                      "on-secondary-fixed": "#3d0023",
+                      "surface-container-high": "#e9e8e3",
+                      "on-tertiary-fixed": "#241a00",
+                      "tertiary-container": "#d0a600",
+                      "secondary": "#a0366c",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#821c54",
+                      "tertiary": "#735c00",
+                      "surface": "#faf9f4",
+                      "on-secondary-container": "#78134c",
+                      "on-primary-fixed": "#002116",
+                      "on-surface": "#1b1c19",
+                      "secondary-fixed-dim": "#ffb0d0",
+                      "outline-variant": "#bdc9c2",
+                      "background": "#faf9f4",
+                      "inverse-surface": "#30312e",
+                      "primary-fixed": "#91f6ce",
+                      "surface-bright": "#faf9f4",
+                      "on-background": "#1b1c19",
+                      "secondary-container": "#fe82bb",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#4f3d00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#f0c100",
+                      "on-surface-variant": "#3e4943"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-margin": "24px",
+                      "section-gap": "40px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Montserrat"],
+                      "body-md": ["Montserrat"],
+                      "label-bold": ["Montserrat"],
+                      "headline-lg-mobile": ["Montserrat"],
+                      "headline-xl": ["Montserrat"],
+                      "headline-lg": ["Montserrat"],
+                      "display-lg": ["Montserrat"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                      "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                      "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .watch-face-shadow {
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        .jagged-star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            /* Simplified 10-point star for the prompt's 12-point jagged polygon requirement via inline-svg mask or manual polygon */
+        }
+        .star-12 {
+            clip-path: polygon(50% 0%, 58% 23%, 82% 18%, 70% 41%, 91% 50%, 70% 59%, 82% 82%, 58% 77%, 50% 100%, 42% 77%, 18% 82%, 30% 59%, 9% 50%, 30% 41%, 18% 18%, 42% 23%);
+        }
+        .arc-progress {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 70;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        @keyframes pulse-gentle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(0.98); }
+        }
+        .pulse { animation: pulse-gentle 3s infinite ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-highest flex items-center justify-center min-h-screen p-4 font-body-md text-on-surface">
+<!-- Watch Frame Mockup -->
+<div class="relative w-[360px] h-[360px] md:w-[420px] md:h-[420px] bg-neutral-900 rounded-full p-4 flex items-center justify-center border-[12px] border-neutral-800 shadow-2xl">
+<!-- Main Circular Watch Face -->
+<div class="relative w-full h-full bg-surface rounded-full overflow-hidden flex flex-col items-center justify-between py-8 px-6 watch-face-shadow border-4 border-outline-variant">
+<!-- Top Section: Time & Decorative Arcs -->
+<div class="absolute top-0 left-0 w-full flex justify-center pt-8 z-10">
+<span class="font-label-bold text-label-bold text-primary tracking-widest uppercase">09:41</span>
+</div>
+<!-- Concentric Progress Rings (Humidity/UV Style) -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="48" stroke-width="2"></circle>
+<circle class="stroke-primary" cx="50" cy="50" fill="none" r="48" stroke-dasharray="301.6" stroke-dashoffset="120" stroke-linecap="round" stroke-width="2"></circle>
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="44" stroke-width="1.5"></circle>
+<circle class="stroke-secondary" cx="50" cy="50" fill="none" r="44" stroke-dasharray="276" stroke-dashoffset="200" stroke-linecap="round" stroke-width="1.5"></circle>
+</svg>
+<!-- Weather Icon (Above Center) -->
+<div class="mt-8 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-[48px] text-primary" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+</div>
+<!-- Center Temperature (Main Anchor) -->
+<div class="flex flex-col items-center justify-center -mt-4">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tighter leading-none select-none">18°C</h1>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest mt-1">London</p>
+</div>
+<!-- Bottom Section: Alerts/UV Index -->
+<div class="flex flex-col items-center gap-2 mb-2">
+<!-- Jagged Star UV Indicator -->
+<div class="relative flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<div class="star-12 w-16 h-16 bg-[#E36CA4] flex items-center justify-center pulse">
+<span class="font-headline-lg text-white font-black">6</span>
+</div>
+<div class="absolute -bottom-6 opacity-80">
+<span class="font-label-bold text-[10px] uppercase text-secondary font-black tracking-tighter">UV Index</span>
+</div>
+</div>
+</div>
+<!-- Side Complications (Decorative/Informational) -->
+<div class="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary-container text-xl" data-icon="air">air</span>
+<span class="font-label-bold text-[11px]">12km/h</span>
+</div>
+<div class="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="water_drop">water_drop</span>
+<span class="font-label-bold text-[11px]">64%</span>
+</div>
+</div>
+<!-- Watch Buttons (Mockup) -->
+<div class="absolute -right-2 top-1/3 w-2 h-12 bg-neutral-700 rounded-l-md border-r-4 border-neutral-900"></div>
+<div class="absolute -right-3 top-1/2 w-4 h-16 bg-neutral-600 rounded-l-lg border-r-4 border-neutral-900 shadow-lg"></div>
+</div>
+<!-- UI Overlay for interaction hint (Desktop Only) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4 max-w-md text-center">
+<div class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-bold text-label-bold shadow-xl border-2 border-primary-container flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="watch">watch</span>
+            WEARABLE OS PREVIEW
+        </div>
+<p class="font-body-md text-on-surface-variant italic">
+            Neo-Brutalist Watch Face concept featuring high-contrast data density and the signature jagged "Star" UV alert.
+        </p>
+</div>
+<!-- Image Logic Placeholders (If needed for background details, though this is primarily vector) -->
+<!-- Since the requirement is Watch Face, I've used pure Tailwind/CSS for the geometry to ensure "Clean" aesthetic -->
+<script>
+        // Micro-interactions for the watch face
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeEl = document.querySelector('.text-primary.tracking-widest');
+            
+            // Live clock simulation
+            setInterval(() => {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                if (timeEl) timeEl.textContent = `${hours}:${minutes}`;
+            }, 1000);
+
+            // Pulse effect for UV star on click
+            const uvStar = document.querySelector('.star-12');
+            if (uvStar) {
+                uvStar.addEventListener('mousedown', () => {
+                    uvStar.style.transform = 'scale(0.9)';
+                });
+                uvStar.addEventListener('mouseup', () => {
+                    uvStar.style.transform = 'scale(1)';
+                });
+            }
+        });
+    </script>
+<!-- Content Policy: No external images used in this specific watch face design to maintain high-density vector clarity -->
+<!-- If images were needed, they would have data-alt prompts here. -->
+</body></html>
