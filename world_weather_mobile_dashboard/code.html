@@ -1,3 +1,4 @@
+<!-- World Weather Dashboard (Final) -->
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
@@ -5,8 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>WORLD WEATHER - Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&amp;family=Bricolage+Grotesque:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -14,83 +14,86 @@
         theme: {
           extend: {
             "colors": {
-                    "tertiary-fixed": "#ffe089",
-                    "primary-fixed-dim": "#75d9b2",
-                    "error": "#ba1a1a",
-                    "surface-container": "#efeee9",
-                    "on-primary-container": "#dcffed",
-                    "on-tertiary-fixed-variant": "#574500",
-                    "on-primary-fixed-variant": "#00513b",
-                    "secondary-fixed": "#ffd8e6",
-                    "surface-container-low": "#f5f4ef",
-                    "outline": "#6e7a73",
-                    "inverse-on-surface": "#f2f1ec",
-                    "on-error": "#ffffff",
-                    "surface-container-highest": "#e3e3de",
-                    "on-primary": "#ffffff",
-                    "surface-variant": "#e3e3de",
-                    "inverse-primary": "#75d9b2",
-                    "primary": "#00664b",
-                    "primary-container": "#008160",
-                    "surface-dim": "#dbdad5",
-                    "surface-tint": "#006c50",
-                    "on-secondary-fixed": "#3d0023",
-                    "surface-container-high": "#e9e8e3",
-                    "on-tertiary-fixed": "#241a00",
-                    "tertiary-container": "#d0a600",
-                    "secondary": "#a0366c",
-                    "error-container": "#ffdad6",
-                    "on-secondary-fixed-variant": "#821c54",
-                    "tertiary": "#735c00",
-                    "surface": "#faf9f4",
-                    "on-secondary-container": "#78134c",
-                    "on-primary-fixed": "#002116",
-                    "on-surface": "#1b1c19",
-                    "secondary-fixed-dim": "#ffb0d0",
-                    "outline-variant": "#bdc9c2",
-                    "background": "#faf9f4",
-                    "inverse-surface": "#30312e",
-                    "primary-fixed": "#91f6ce",
-                    "surface-bright": "#faf9f4",
-                    "on-background": "#1b1c19",
-                    "secondary-container": "#fe82bb",
-                    "on-secondary": "#ffffff",
-                    "on-tertiary": "#ffffff",
-                    "on-tertiary-container": "#4f3d00",
-                    "surface-container-lowest": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "tertiary-fixed-dim": "#f0c100",
-                    "on-surface-variant": "#3e4943"
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#ffafa6",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "surface-container-highest": "#e5e2e1",
+                "on-surface": "#1c1b1b",
+                "surface-container-high": "#eae7e7",
+                "tertiary-container": "#7f3d36",
+                "on-secondary-fixed-variant": "#574500",
+                "outline": "#6f7974",
+                "on-background": "#1c1b1b",
+                "on-tertiary-fixed-variant": "#73342d",
+                "on-primary-fixed-variant": "#00513c",
+                "inverse-surface": "#313030",
+                "surface": "#fcf9f8",
+                "primary-container": "#005c44",
+                "secondary-container": "#fed65b",
+                "secondary-fixed-dim": "#e9c349",
+                "surface-tint": "#1b6b52",
+                "primary": "#004230",
+                "background": "#fcf9f8",
+                "tertiary-fixed": "#ffdad5",
+                "surface-variant": "#e5e2e1",
+                "on-surface-variant": "#3f4944",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#f3f0ef",
+                "primary-fixed": "#a6f2d2",
+                "error": "#ba1a1a",
+                "on-secondary-container": "#745c00",
+                "on-secondary-fixed": "#241a00",
+                "on-primary-fixed": "#002116",
+                "outline-variant": "#bec9c2",
+                "on-tertiary-fixed": "#3b0907",
+                "on-secondary": "#ffffff",
+                "surface-bright": "#fcf9f8",
+                "surface-dim": "#dcd9d9",
+                "secondary-fixed": "#ffe088",
+                "on-primary": "#ffffff",
+                "surface-container": "#f0eded",
+                "tertiary-fixed-dim": "#ffb4ab",
+                "surface-container-lowest": "#ffffff",
+                "inverse-primary": "#8bd5b7",
+                "on-primary-container": "#87d2b3",
+                "tertiary": "#622721",
+                "primary-fixed-dim": "#8bd5b7",
+                "secondary": "#735c00",
+                "surface-container-low": "#f6f3f2"
             },
             "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
             },
             "spacing": {
-                    "gutter": "16px",
-                    "container-margin": "24px",
-                    "section-gap": "40px",
-                    "unit": "8px"
+                "gutter": "24px",
+                "stack-md": "24px",
+                "base": "8px",
+                "margin-desktop": "48px",
+                "margin-mobile": "16px",
+                "stack-sm": "12px",
+                "stack-lg": "48px"
             },
             "fontFamily": {
-                    "body-lg": ["Montserrat"],
-                    "body-md": ["Montserrat"],
-                    "label-bold": ["Montserrat"],
-                    "headline-lg-mobile": ["Montserrat"],
-                    "headline-xl": ["Montserrat"],
-                    "headline-lg": ["Montserrat"],
-                    "display-lg": ["Montserrat"]
+                "body-lg": ["Hanken Grotesk"],
+                "headline-lg": ["Bricolage Grotesque"],
+                "headline-lg-mobile": ["Bricolage Grotesque"],
+                "body-md": ["Hanken Grotesk"],
+                "label-sm": ["JetBrains Mono"],
+                "display-lg": ["Bricolage Grotesque"],
+                "headline-md": ["Bricolage Grotesque"]
             },
             "fontSize": {
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
-                    "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
-                    "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900"}]
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
             }
           },
         },
@@ -99,7 +102,7 @@
 <style>
         .jagged-star {
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            background-color: #E36CA4;
+            background-color: #735c00;
         }
         .jagged-bubble {
             clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 95% 85%, 90% 100%, 85% 85%, 0% 85%);
@@ -110,179 +113,1534 @@
         
         .neo-button-press:active {
             transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1) !important;
+        }
+        .neo-card {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        .neo-card:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
+        }
+        body {
+            min-height: max(884px, 100dvh);
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden pb-24">
 <!-- TopAppBar -->
-<header class="bg-surface dark:bg-surface-dim border-b-2 border-outline dark:border-outline-variant fixed top-0 w-full z-50">
-<div class="flex justify-between items-center px-container-margin py-4 w-full max-w-[1280px] mx-auto">
-<button class="text-primary dark:text-primary-fixed-dim active:translate-x-1 active:translate-y-1 transition-transform">
+<header class="bg-surface border-b-2 border-outline fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-margin-mobile py-4 w-full max-w-[1280px] mx-auto">
+<button class="text-primary active:translate-x-1 active:translate-y-1 transition-transform">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
-<h1 class="font-headline-xl text-headline-xl uppercase tracking-tighter text-primary dark:text-primary-fixed-dim">WORLD WEATHER</h1>
-<button class="text-primary dark:text-primary-fixed-dim active:translate-x-1 active:translate-y-1 transition-transform">
+<h1 class="font-display-lg text-headline-md uppercase tracking-tighter text-primary">WORLD WEATHER</h1>
+<button class="text-primary active:translate-x-1 active:translate-y-1 transition-transform">
 <span class="material-symbols-outlined" data-icon="search">search</span>
 </button>
 </div>
 <!-- Fixed Search Bar Attachment -->
-<div class="px-container-margin pb-4">
+<div class="px-margin-mobile pb-4">
 <div class="flex items-center bg-surface-container-low border-2 border-outline rounded-full px-4 py-2 hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
 <span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
 <input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md text-on-surface" placeholder="Enter any city..." type="text"/>
 </div>
 </div>
 </header>
-<main class="mt-40 px-container-margin">
+<main class="mt-40 px-margin-mobile">
 <!-- Main Hero Section -->
-<section class="flex flex-col items-center mb-section-gap py-8 bg-primary-container/10 rounded-xl border-2 border-primary/20">
-<h2 class="font-headline-xl text-headline-xl text-primary">LONDON</h2>
+<section class="flex flex-col items-center mb-stack-lg py-8 bg-primary-fixed/20 rounded-xl border-2 border-primary/30">
+<h2 class="font-headline-lg text-headline-lg text-primary">LONDON</h2>
 <div class="flex items-center gap-4 mt-2">
 <span class="font-display-lg text-display-lg text-on-surface">18°C</span>
-<span class="material-symbols-outlined text-[80px] text-tertiary-container" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+<span class="material-symbols-outlined text-[80px] text-secondary-fixed" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
 </div>
 <!-- Air Quality Star -->
 <div class="mt-6 flex items-center gap-3">
 <div class="w-12 h-12 flex items-center justify-center jagged-star">
 <span class="material-symbols-outlined text-white" data-icon="eco">eco</span>
 </div>
-<span class="font-label-bold text-label-bold text-secondary">Air Quality: Fair</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Air Quality: Fair</span>
 </div>
 </section>
-<!-- Hourly Forecast (Horizontal Scroll) -->
-<section class="mb-section-gap">
-<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4">HOURLY FORECAST</h3>
-<div class="flex overflow-x-auto no-scrollbar gap-4 pb-2">
-<!-- Forecast Cards -->
-<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
-<span class="font-label-bold text-label-bold">Now</span>
-<span class="material-symbols-outlined text-tertiary my-2" data-icon="partly_sunny">partly_cloudy_day</span>
+<!-- Hourly Forecast -->
+<section class="mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">HOURLY FORECAST</h3>
+<div class="flex overflow-x-auto no-scrollbar gap-4 pb-4">
+<button class="neo-card min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl cursor-pointer">
+<span class="font-label-sm text-label-sm">Now</span>
+<span class="material-symbols-outlined text-secondary my-2" data-icon="partly_sunny">partly_cloudy_day</span>
 <span class="font-body-lg text-body-lg">18°</span>
-</div>
-<div class="min-w-[100px] flex flex-col items-center p-4 bg-primary-container text-on-primary-container border-2 border-primary rounded-xl">
-<span class="font-label-bold text-label-bold">14:00</span>
+</button>
+<button class="neo-card min-w-[100px] flex flex-col items-center p-4 bg-primary-container text-on-primary-container border-2 border-primary rounded-xl cursor-pointer">
+<span class="font-label-sm text-label-sm">14:00</span>
 <span class="material-symbols-outlined my-2" data-icon="sunny" style="font-variation-settings: 'FILL' 1;">sunny</span>
 <span class="font-body-lg text-body-lg">20°</span>
-</div>
-<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl">
-<span class="font-label-bold text-label-bold">15:00</span>
-<span class="material-symbols-outlined text-tertiary my-2" data-icon="sunny">sunny</span>
+</button>
+<button class="neo-card min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl cursor-pointer">
+<span class="font-label-sm text-label-sm">15:00</span>
+<span class="material-symbols-outlined text-secondary my-2" data-icon="sunny">sunny</span>
 <span class="font-body-lg text-body-lg">21°</span>
-</div>
-<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl">
-<span class="font-label-bold text-label-bold">16:00</span>
-<span class="material-symbols-outlined text-tertiary my-2" data-icon="cloud">cloud</span>
+</button>
+<button class="neo-card min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl cursor-pointer">
+<span class="font-label-sm text-label-sm">16:00</span>
+<span class="material-symbols-outlined text-secondary my-2" data-icon="cloud">cloud</span>
 <span class="font-body-lg text-body-lg">19°</span>
-</div>
-<div class="min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl">
-<span class="font-label-bold text-label-bold">17:00</span>
-<span class="material-symbols-outlined text-tertiary my-2" data-icon="rainy">rainy</span>
+</button>
+<button class="neo-card min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl cursor-pointer">
+<span class="font-label-sm text-label-sm">17:00</span>
+<span class="material-symbols-outlined text-secondary my-2" data-icon="rainy">rainy</span>
 <span class="font-body-lg text-body-lg">17°</span>
-</div>
+</button>
 </div>
 </section>
 <!-- Data Grid (Bento Style) -->
-<div class="grid grid-cols-2 gap-4 mb-section-gap">
+<div class="grid grid-cols-2 gap-4 mb-stack-lg">
 <!-- UV Index -->
-<div class="bg-secondary-fixed p-container-margin rounded-xl border-2 border-secondary/20 flex flex-col items-center justify-between min-h-[200px]">
-<h4 class="font-label-bold text-label-bold text-on-secondary-fixed-variant uppercase">UV Index</h4>
-<div class="relative w-24 h-24">
-<!-- Simple Doughnut Simulation -->
+<div class="bg-secondary-fixed/30 p-4 rounded-xl border-2 border-secondary/20 flex flex-col items-center justify-between min-h-[180px]">
+<h4 class="font-label-sm text-label-sm text-on-secondary-fixed uppercase">UV Index</h4>
+<div class="relative w-20 h-20">
 <svg class="w-full h-full transform -rotate-90">
-<circle class="text-secondary/10" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="100" stroke-width="8"></circle>
+<circle class="text-secondary/10" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-secondary" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="80" stroke-width="6"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="font-headline-lg-mobile text-headline-lg-mobile">6</span>
+<span class="font-headline-md text-headline-md">6</span>
 </div>
 </div>
-<p class="font-label-bold text-label-bold text-secondary">High</p>
+<p class="font-label-sm text-label-sm text-secondary">High</p>
 </div>
 <!-- Humidity -->
-<div class="bg-tertiary-fixed p-container-margin rounded-xl border-2 border-tertiary/20 flex flex-col items-center justify-between min-h-[200px]">
-<h4 class="font-label-bold text-label-bold text-on-tertiary-fixed-variant uppercase">Humidity</h4>
-<div class="relative w-24 h-24">
+<div class="bg-primary-fixed/30 p-4 rounded-xl border-2 border-primary/20 flex flex-col items-center justify-between min-h-[180px]">
+<h4 class="font-label-sm text-label-sm text-on-primary-fixed-variant uppercase">Humidity</h4>
+<div class="relative w-20 h-20">
 <svg class="w-full h-full transform -rotate-90">
-<circle class="text-tertiary/10" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-tertiary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="88" stroke-width="8"></circle>
+<circle class="text-primary/10" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="75" stroke-width="6"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="font-headline-lg-mobile text-headline-lg-mobile">65%</span>
+<span class="font-headline-md text-headline-md">65%</span>
 </div>
 </div>
-<p class="font-label-bold text-label-bold text-tertiary">Normal</p>
+<p class="font-label-sm text-label-sm text-primary">Normal</p>
 </div>
-<!-- Wind Speed & More List (Full Width Span) -->
-<div class="col-span-2 bg-surface-container-high p-container-margin rounded-xl border-2 border-outline">
+<!-- Wind Speed & More List -->
+<div class="col-span-2 bg-surface-container-high p-4 rounded-xl border-2 border-outline">
 <div class="flex items-center justify-between mb-4">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary" data-icon="air">air</span>
-<span class="font-label-bold text-label-bold uppercase">Wind Speed</span>
+<span class="font-label-sm text-label-sm uppercase">Wind Speed</span>
 </div>
-<span class="font-body-lg text-body-lg font-bold">12 km/h NW</span>
+<span class="font-body-md font-bold">12 km/h NW</span>
 </div>
 <div class="h-[1px] bg-outline-variant mb-4"></div>
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
-<span class="font-label-bold text-label-bold uppercase">Visibility</span>
+<span class="font-label-sm text-label-sm uppercase">Visibility</span>
 </div>
-<span class="font-body-lg text-body-lg font-bold">10 km</span>
+<span class="font-body-md font-bold">10 km</span>
 </div>
 </div>
 </div>
 <!-- Climate Fact Bubble -->
-<section class="mb-section-gap">
-<div class="bg-primary-fixed p-6 jagged-bubble border-2 border-primary/30">
-<p class="font-label-bold text-label-bold text-on-primary-fixed mb-2 uppercase">Climate Fact</p>
-<p class="font-body-lg text-body-lg text-on-primary-fixed font-bold leading-tight">
+<section class="mb-stack-lg">
+<div class="bg-primary-fixed p-6 jagged-bubble border-2 border-primary/40 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">
+<p class="font-label-sm text-label-sm text-on-primary-fixed mb-2 uppercase">Climate Fact</p>
+<p class="font-body-lg text-on-primary-fixed font-bold leading-tight">
                     Arctic sea ice is declining at a rate of 12.6% per decade.
                 </p>
 </div>
 </section>
 <!-- Large Image Background Decoration -->
-<div class="w-full h-48 rounded-2xl overflow-hidden mb-section-gap border-2 border-outline relative">
-<img class="w-full h-full object-cover grayscale opacity-40" data-alt="A cinematic panoramic view of a modern cityscape under a dramatic sky with mixed sun and dark clouds. The lighting is high-energy and authoritative, with high contrast between the dark silhouettes of urban architecture and the bright, glowing elements of nature. The color palette reflects the clean off-white foundation of the app, accented by deep teals and sharp horizons." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmIdfLs573vFWut_X3BVQ_01zjng5ifqymixUKUh7j-f8McEhtc2feK_popCnujefXNE4um_OXL-1UDJiTYzWadhfGaVWFbb6lhvIdtWTqPQfPF15F9RdR7I4ObLkT6DSqF94_AilQPYUCAx4CPfBVFs14PIJpqdBn2xLl2LpWikgaOZ0zC_-OkrDy1XAOrxNZnQOFTF27xOQw4-cYwexdRL3NV0ioKD7W_T--MA4W13D-1qdqxAfNVCnZmd_-5FOFYbf2LcE6arU"/>
+<div class="w-full h-48 rounded-2xl overflow-hidden mb-stack-lg border-2 border-outline relative">
+<img class="w-full h-full object-cover grayscale opacity-40" data-alt="A cinematic panoramic view of a modern cityscape under a dramatic sky with mixed sun and dark clouds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmIdfLs573vFWut_X3BVQ_01zjng5ifqymixUKUh7j-f8McEhtc2feK_popCnujefXNE4um_OXL-1UDJiTYzWadhfGaVWFbb6lhvIdtWTqPQfPF15F9RdR7I4ObLkT6DSqF94_AilQPYUCAx4CPfBVFs14PIJpqdBn2xLl2LpWikgaOZ0zC_-OkrDy1XAOrxNZnQOFTF27xOQw4-cYwexdRL3NV0ioKD7W_T--MA4W13D-1qdqxAfNVCnZmd_-5FOFYbf2LcE6arU"/>
 <div class="absolute inset-0 flex items-center justify-center">
-<button class="bg-tertiary-container text-on-tertiary-container px-8 py-4 rounded-full font-headline-lg-mobile uppercase neo-button-press shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black">
+<a class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-full font-headline-md uppercase neo-button-press shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black inline-block text-center no-underline" href="/map">
                     Check Climate Map
-                </button>
+                </a>
 </div>
 </div>
 </main>
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim border-t-2 border-outline dark:border-outline-variant z-50">
-<button class="flex flex-col items-center justify-center bg-tertiary-container dark:bg-tertiary text-on-tertiary-container dark:text-on-tertiary rounded-xl p-2 border-2 border-outline active:scale-95 transition-all">
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface border-t-2 border-outline z-50">
+<a class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-xl p-2 border-2 border-outline active:scale-95 transition-all no-underline w-full mx-1" href="/dashboard">
 <span class="material-symbols-outlined" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
-<span class="font-label-bold text-label-bold">Forecast</span>
-</button>
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all">
+<span class="font-label-sm text-[10px] uppercase">Forecast</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high active:scale-95 transition-all no-underline w-full mx-1" href="/radar">
 <span class="material-symbols-outlined" data-icon="radar">radar</span>
-<span class="font-label-bold text-label-bold">Radar</span>
-</button>
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all">
+<span class="font-label-sm text-[10px] uppercase">Radar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high active:scale-95 transition-all no-underline w-full mx-1" href="/alerts">
 <span class="material-symbols-outlined" data-icon="warning">warning</span>
-<span class="font-label-bold text-label-bold">Alerts</span>
-</button>
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all">
+<span class="font-label-sm text-[10px] uppercase">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high active:scale-95 transition-all no-underline w-full mx-1" href="/settings">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-label-bold text-label-bold">Settings</span>
+<span class="font-label-sm text-[10px] uppercase">Settings</span>
+</a>
+</nav>
+<script>
+    document.addEventListener('mousemove', (e) => {
+        const heroTemp = document.querySelector('.text-display-lg');
+        if(heroTemp) {
+            const x = (window.innerWidth / 2 - e.pageX) / 60;
+            const y = (window.innerHeight / 2 - e.pageY) / 60;
+            heroTemp.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    });
+</script>
+</body></html>
+
+<!-- Weather Radar (Final) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>World Weather - Radar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&amp;family=Bricolage+Grotesque:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffafa6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-container": "#7f3d36",
+                        "on-secondary-fixed-variant": "#574500",
+                        "outline": "#6f7974",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#73342d",
+                        "on-primary-fixed-variant": "#00513c",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#005c44",
+                        "secondary-container": "#fed65b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-tint": "#1b6b52",
+                        "primary": "#004230",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface-variant": "#3f4944",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#a6f2d2",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#002116",
+                        "outline-variant": "#bec9c2",
+                        "on-tertiary-fixed": "#3b0907",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-fixed": "#ffe088",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#8bd5b7",
+                        "on-primary-container": "#87d2b3",
+                        "tertiary": "#622721",
+                        "primary-fixed-dim": "#8bd5b7",
+                        "secondary": "#735c00",
+                        "surface-container-low": "#f6f3f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "section-gap": "40px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-bold": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .radar-pulse {
+            animation: pulse 2s infinite ease-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .neo-brutal-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0, 66, 48, 1);
+        }
+        .jagged-bottom {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 95% 100%, 90% 90%, 85% 100%, 80% 90%, 75% 100%, 70% 90%, 65% 100%, 60% 90%, 55% 100%, 50% 90%, 45% 100%, 40% 90%, 35% 100%, 30% 90%, 25% 100%, 20% 90%, 15% 100%, 10% 90%, 5% 100%, 0% 90%);
+        }
+        .star-polygon {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-outline sticky top-0 z-50">
+<div class="flex justify-between items-center px-container-margin py-4 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:translate-x-0.5 hover:translate-y-0.5 transition-transform active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-xl text-headline-xl uppercase tracking-tighter text-primary">WORLD WEATHER</h1>
+</div>
+<button class="text-primary hover:translate-x-0.5 hover:translate-y-0.5 transition-transform active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-4 md:px-container-margin py-gutter mb-24">
+<!-- Radar Map Section -->
+<section class="relative w-full h-[530px] md:h-[618px] rounded-xl overflow-hidden border-2 border-outline bg-surface-container-low mb-section-gap">
+<!-- Simulated Radar Map Background -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-location="Berlin" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQ-RjVzBgVJ145NXFdoFpnXAKf-XYBhRqkwtgddbDN5yLLkpdMPL6BzO8ukXLl8kmf9QTKxHzntvggoQhgRSkDhZfnobrjHAH-StqwgQPCxAxcERljPWtLmufREUize0If2dIGgkmu8lWkrOO0f_VAPJNr7gd4Cgic-hEUAGULx8fOvG46O_hVZ1d8bloBegCG_P3sr4lG7grBg29xOQobUptxYGZuw8UKQdwxti5_EGZmHOHdODeZcvWbSfHrzH_eELjqyN-u4fQ')"></div>
+<!-- Precipitation Layers (Animated Overlays) -->
+<div class="absolute inset-0 radar-pulse pointer-events-none opacity-60">
+<div class="absolute top-1/3 left-1/4 w-64 h-48 bg-primary-container rounded-full blur-3xl opacity-40"></div>
+<div class="absolute bottom-1/4 right-1/3 w-80 h-60 bg-secondary rounded-full blur-3xl opacity-30"></div>
+<div class="absolute top-1/2 left-1/2 w-40 h-40 bg-secondary-fixed-dim rounded-full blur-2xl opacity-50"></div>
+</div>
+<!-- UI Overlays for Radar -->
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<div class="bg-surface-bright p-4 rounded-xl border-2 border-outline neo-brutal-shadow max-w-xs">
+<h3 class="font-label-bold text-label-bold text-primary mb-1 uppercase">Current View</h3>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Berlin, DE</p>
+<p class="text-on-surface-variant font-body-md">Light Rain - 12.4 mm/h</p>
+</div>
+<div class="bg-error-container p-3 rounded-xl border-2 border-outline flex items-center gap-3">
+<div class="w-10 h-10 bg-on-error rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-error-container">Flash Flood Alert</p>
+<p class="text-xs text-on-error-container opacity-80">Expires in 2h 15m</p>
+</div>
+</div>
+</div>
+<!-- Legend Overlay -->
+<div class="absolute bottom-4 right-4 bg-surface-bright/90 backdrop-blur-md p-4 rounded-xl border-2 border-outline flex flex-col gap-2">
+<p class="font-label-bold text-label-bold text-outline uppercase mb-1">Intensity</p>
+<div class="flex items-center gap-2">
+<div class="h-4 w-full flex rounded-full overflow-hidden border border-outline">
+<div class="flex-1 bg-primary-fixed"></div>
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-secondary-fixed"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary-container"></div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant">
+<span>LIGHT</span>
+<span>EXTREME</span>
+</div>
+</div>
+<!-- Floating Controls -->
+<div class="absolute bottom-20 left-1/2 -translate-x-1/2 w-[90%] md:w-3/4 max-w-2xl bg-surface-bright border-2 border-outline rounded-2xl p-4 neo-brutal-shadow flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<button class="bg-secondary-fixed text-on-secondary-fixed font-bold px-4 py-2 rounded-full border-2 border-outline hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+                    LIVE
+                </button>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="skip_previous">skip_previous</span>
+</button>
+<button class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center border-2 border-outline active:scale-90 transition-all" id="radarPlayBtn">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="skip_next">skip_next</span>
+</button>
+</div>
+<div class="text-right">
+<p class="font-label-bold text-label-bold text-on-surface">14:30</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Today</p>
+</div>
+</div>
+<div class="relative w-full h-4 bg-surface-container-high rounded-full border border-outline overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-primary-container w-2/3"></div>
+<div class="absolute inset-y-0 left-2/3 -ml-2 w-4 h-4 bg-on-primary rounded-full border-2 border-primary shadow-sm z-10 cursor-pointer"></div>
+</div>
+</div>
+</section>
+<!-- Weather Insights Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Forecast Card -->
+<div class="md:col-span-8 bg-surface-container-low p-gutter rounded-3xl border-2 border-outline relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between md:items-center mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Hourly Radar Outlook</h2>
+<p class="text-on-surface-variant">Cloud movement tracking for the next 6 hours</p>
+</div>
+<button class="mt-4 md:mt-0 font-label-bold text-label-bold bg-primary-fixed text-on-primary-fixed px-6 py-2 rounded-full border-2 border-outline hover:translate-x-1 hover:translate-y-1 transition-all">
+                    FULL FORECAST
+                </button>
+</div>
+<div class="flex justify-between items-end gap-2 overflow-x-auto pb-4">
+<div class="flex flex-col items-center min-w-[70px] gap-2">
+<span class="text-on-surface-variant text-xs font-bold">15:00</span>
+<div class="w-12 h-24 bg-surface-container rounded-xl border border-outline flex items-end p-1">
+<div class="w-full bg-primary-container rounded-lg h-[40%]"></div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="rainy">rainy</span>
+</div>
+<div class="flex flex-col items-center min-w-[70px] gap-2">
+<span class="text-on-surface-variant text-xs font-bold">16:00</span>
+<div class="w-12 h-24 bg-surface-container rounded-xl border border-outline flex items-end p-1">
+<div class="w-full bg-primary-container rounded-lg h-[60%]"></div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="rainy">rainy</span>
+</div>
+<div class="flex flex-col items-center min-w-[70px] gap-2">
+<span class="text-on-surface-variant text-xs font-bold">17:00</span>
+<div class="w-12 h-24 bg-surface-container rounded-xl border border-outline flex items-end p-1">
+<div class="w-full bg-primary-container rounded-lg h-[90%]"></div>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="thunderstorm">thunderstorm</span>
+</div>
+<div class="flex flex-col items-center min-w-[70px] gap-2">
+<span class="text-on-surface-variant text-xs font-bold">18:00</span>
+<div class="w-12 h-24 bg-surface-container rounded-xl border border-outline flex items-end p-1">
+<div class="w-full bg-primary-container rounded-lg h-[50%]"></div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="rainy">rainy</span>
+</div>
+</div>
+</div>
+<!-- Climate Fact Bubble -->
+<div class="md:col-span-4 bg-secondary-fixed p-6 rounded-3xl border-2 border-outline jagged-bottom flex flex-col justify-center min-h-[250px]">
+<div class="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center mb-4 border-2 border-outline neo-brutal-shadow">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="eco">eco</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-secondary-fixed uppercase mb-2">Climate Insight</h3>
+<p class="font-body-md text-on-secondary-fixed-variant">Berlin has seen a 15% increase in heavy precipitation events since 1990 due to rising atmospheric temperatures.</p>
+</div>
+<!-- UV & Humidity Rings -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-low p-6 rounded-3xl border-2 border-outline flex items-center justify-between">
+<div class="relative w-24 h-24">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="stroke-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="4"></path>
+<path class="stroke-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-bold text-primary">75%</div>
+</div>
+<div class="text-right">
+<h4 class="font-label-bold text-label-bold text-on-surface-variant uppercase">Humidity</h4>
+<p class="text-headline-lg text-primary">High</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-3xl border-2 border-outline flex items-center justify-between">
+<div class="relative w-24 h-24">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="stroke-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="4"></path>
+<path class="stroke-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="30, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-bold text-secondary">3.2</div>
+</div>
+<div class="text-right">
+<h4 class="font-label-bold text-label-bold text-on-surface-variant uppercase">UV Index</h4>
+<p class="text-headline-lg text-secondary">Low</p>
+</div>
+</div>
+<!-- Star Alert Component -->
+<div class="bg-surface-container-low p-6 rounded-3xl border-2 border-outline relative overflow-hidden flex items-center justify-between group">
+<div class="w-20 h-20 bg-secondary-fixed star-polygon flex items-center justify-center absolute -left-4 top-1/2 -translate-y-1/2 rotate-12 group-hover:scale-110 transition-transform border border-outline">
+<span class="material-symbols-outlined text-on-secondary-fixed text-3xl" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="ml-20 text-right w-full">
+<h4 class="font-label-bold text-label-bold text-on-surface-variant uppercase">Active Alert</h4>
+<p class="text-headline-lg-mobile text-on-surface">Flood Risk</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+// Open-Meteo search + update (scoped to the first dashboard `main`)
+(function(){
+    async function geocodeCity(q){
+        const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=1&language=en`;
+        const r = await fetch(url);
+        if(!r.ok) throw new Error('Geocode failed');
+        const j = await r.json();
+        return j.results?.[0] || null;
+    }
+    async function fetchWeather(lat,lon){
+        const params = new URLSearchParams({latitude:lat,longitude:lon,current_weather:'true',hourly:'temperature_2m,relativehumidity_2m,visibility,uv_index,weathercode',timezone:'auto'});
+        const url = `https://api.open-meteo.com/v1/forecast?${params.toString()}`;
+        const r = await fetch(url);
+        if(!r.ok) throw new Error('Weather fetch failed');
+        return r.json();
+    }
+    async function fetchAir(lat,lon){
+        const params = new URLSearchParams({latitude:lat,longitude:lon,hourly:'us_aqi',timezone:'auto'});
+        const url = `https://air-quality-api.open-meteo.com/v1/air-quality?${params.toString()}`;
+        const r = await fetch(url);
+        if(!r.ok) return null;
+        return r.json();
+    }
+
+    const codeMap = {
+        0:'wb_sunny',1:'partly_cloudy_day',2:'partly_cloudy_day',3:'cloud',45:'foggy',48:'foggy',51:'rainy',53:'rainy',55:'rainy',61:'rainy',63:'rainy',65:'rainy',71:'snowing',73:'snowing',75:'snowing',80:'rainy',81:'rainy',82:'rainy',95:'thunderstorm',96:'thunderstorm',99:'thunderstorm'
+    };
+    function codeToIcon(c){ return codeMap[c]||'partly_cloudy_day'; }
+
+    function findHourlySection(root){
+        const secs = root.querySelectorAll('section');
+        for(const s of secs){
+            const h = s.querySelector('h3');
+            if(h && /HOURLY/i.test(h.textContent)) return s;
+        }
+        return null;
+    }
+
+    function renderHourly(root, hourly){
+        const s = findHourlySection(root);
+        if(!s) return;
+        const container = s.querySelector('.overflow-x-auto');
+        if(!container) return;
+        const times = hourly.time.slice(0,6);
+        const cards = times.map((t,i)=>{
+            const label = i===0? 'Now' : new Date(t).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+            const temp = Math.round(hourly.temperature_2m[i]);
+            const code = hourly.weathercode[i];
+            const icon = codeToIcon(code);
+            return `<button class="neo-card min-w-[100px] flex flex-col items-center p-4 bg-surface-container-low border-2 border-outline-variant rounded-xl cursor-pointer"><span class="font-label-sm text-label-sm">${label}</span><span class="material-symbols-outlined text-secondary my-2" data-icon="${icon}">${icon}</span><span class="font-body-lg text-body-lg">${temp}°</span></button>`;
+        });
+        container.innerHTML = cards.join('');
+    }
+
+    function updateUI(root, location, weather, air){
+        if(!root) return;
+        const hero = root.querySelector('section');
+        if(!hero) return;
+        const cityEl = hero.querySelector('h2');
+        const tempEl = hero.querySelector('.font-display-lg');
+        const iconEl = hero.querySelector('span.material-symbols-outlined');
+        const airEl = hero.querySelector('div.mt-6 > span');
+
+        const container = root.querySelector('.col-span-2.bg-surface-container-high');
+        const stats = container? container.querySelectorAll('.font-body-md.font-bold') : [];
+        const windEl = stats[0];
+        const visEl = stats[1];
+
+        const current = weather.current_weather;
+        const humidity = (weather.hourly && weather.hourly.relativehumidity_2m)? (()=>{ const idx = weather.hourly.time.indexOf(current.time); return idx>=0? weather.hourly.relativehumidity_2m[idx]:null; })() : null;
+        const uv = (weather.hourly && weather.hourly.uv_index)? (()=>{ const idx = weather.hourly.time.indexOf(current.time); return idx>=0? weather.hourly.uv_index[idx]:null; })() : null;
+
+        if(cityEl) cityEl.textContent = location?.name || cityEl.textContent;
+        if(tempEl) tempEl.textContent = `${Math.round(current.temperature)}°C`;
+        if(iconEl){ const ic = codeToIcon(current.weathercode); iconEl.textContent = ic; iconEl.setAttribute('data-icon', ic); }
+        if(airEl) airEl.textContent = `Air Quality: ${air? (air.hourly && air.hourly.us_aqi? (()=>{ const idx = air.hourly.time.indexOf(current.time); const v = idx>=0? air.hourly.us_aqi[idx]:null; return v!=null? (v<=50?'Excellent':v<=100?'Fair':v<=150?'Moderate':v<=200?'Unhealthy':'Hazardous') : '—'; })() : '—') : '—'}`;
+        if(humidity!=null){ const humEl = root.querySelectorAll('.relative.w-20.h-20 .font-headline-md')[1]; if(humEl) humEl.textContent = `${Math.round(humidity)}%`; }
+        if(windEl) windEl.textContent = `${Math.round(current.windspeed)} km/h ${Math.round(current.winddirection)}°`;
+        if(visEl) visEl.textContent = weather.hourly && weather.hourly.visibility? (()=>{ const idx = weather.hourly.time.indexOf(current.time); const v = idx>=0? weather.hourly.visibility[idx]:null; return v!=null? `${Math.round(v/1000)} km` : '—'; })() : visEl.textContent;
+
+        renderHourly(root, weather.hourly);
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        const root = document.querySelector('main');
+        const input = document.querySelector('header input[placeholder="Enter any city..."]');
+        if(!input) return;
+        input.addEventListener('keydown', async (e)=>{
+            if(e.key !== 'Enter') return;
+            const q = input.value.trim();
+            if(!q) return;
+            try{
+                const loc = await geocodeCity(q);
+                if(!loc) { console.warn('City not found'); return; }
+                const weather = await fetchWeather(loc.latitude, loc.longitude);
+                const air = await fetchAir(loc.latitude, loc.longitude).catch(()=>null);
+                updateUI(root, loc, weather, air);
+            }catch(err){ console.warn(err); }
+        });
+    });
+})();
+</script>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface border-t-2 border-outline z-50 flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-95 no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="partly_sunny">partly_cloudy_day</span>
+<span class="font-label-bold text-[10px] uppercase">Forecast</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-xl p-2 border-2 border-outline active:scale-95 transition-all no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="radar" style="font-variation-settings: 'FILL' 1;">radar</span>
+<span class="font-label-bold text-[10px] uppercase">Radar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-95 no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-bold text-[10px] uppercase">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-95 no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-[10px] uppercase">Settings</span>
+</a>
+</nav>
+<script>
+    const playBtn = document.getElementById('radarPlayBtn');
+    let isPlaying = false;
+    
+    playBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const icon = playBtn.querySelector('.material-symbols-outlined');
+        icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+        
+        if (isPlaying) {
+            playBtn.classList.add('bg-secondary');
+            playBtn.classList.remove('bg-primary-container');
+        } else {
+            playBtn.classList.add('bg-primary-container');
+            playBtn.classList.remove('bg-secondary');
+        }
+    });
+</script>
+</body></html>
+
+<!-- Weather Alerts (Final) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>World Weather - Alerts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&amp;family=Bricolage+Grotesque:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffafa6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-container": "#7f3d36",
+                        "on-secondary-fixed-variant": "#574500",
+                        "outline": "#6f7974",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#73342d",
+                        "on-primary-fixed-variant": "#00513c",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#005c44",
+                        "secondary-container": "#fed65b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-tint": "#1b6b52",
+                        "primary": "#004230",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface-variant": "#3f4944",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#a6f2d2",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#002116",
+                        "outline-variant": "#bec9c2",
+                        "on-tertiary-fixed": "#3b0907",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-fixed": "#ffe088",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#8bd5b7",
+                        "on-primary-container": "#87d2b3",
+                        "tertiary": "#622721",
+                        "primary-fixed-dim": "#8bd5b7",
+                        "secondary": "#735c00",
+                        "surface-container-low": "#f6f3f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "section-gap": "40px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-bold": ["JetBrains Mono"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .star-shape {
+            clip-path: polygon(50% 0%, 60% 20%, 80% 10%, 75% 35%, 100% 40%, 80% 60%, 90% 85%, 60% 75%, 50% 100%, 40% 75%, 10% 85%, 20% 60%, 0% 40%, 25% 35%, 20% 10%, 40% 20%);
+        }
+        .neo-brutalist-border {
+            border: 2px solid #1c1b1b;
+        }
+        .active-scale:active {
+            transform: scale(0.95);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface docked full-width top-0 border-b-2 border-outline z-40 sticky">
+<div class="flex justify-between items-center px-container-margin py-4 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-primary active:translate-x-1 active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-headline-lg" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-xl text-headline-md uppercase tracking-tighter text-primary">WORLD WEATHER</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary active:translate-x-1 active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-headline-lg" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin py-8">
+<!-- Header Section -->
+<section class="mb-section-gap flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">Active Alerts</h2>
+<p class="text-on-surface-variant font-body-lg">Immediate weather threats and advisories for your region.</p>
+</div>
+<!-- Global Notify Me Toggle -->
+<div class="flex items-center gap-4 p-4 bg-surface-container-low neo-brutalist-border rounded-xl">
+<span class="font-label-bold text-label-bold text-on-surface uppercase">Notify Me</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-7 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</section>
+<!-- Alerts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Severe Alert Card -->
+<div class="bg-[#fce4ec] neo-brutalist-border rounded-xl p-gutter relative overflow-hidden flex flex-col justify-between group hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+<div class="flex items-start justify-between mb-4">
+<div class="w-20 h-20 bg-error star-shape flex items-center justify-center neo-brutalist-border">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<span class="font-label-bold text-label-bold px-3 py-1 bg-on-background text-background rounded-full uppercase">Danger</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-on-surface mb-2 uppercase tracking-tight">Flash Flood Warning</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Extreme precipitation levels expected in the next 3 hours. Seek higher ground immediately.</p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-bold text-label-bold opacity-70">EXPIRES: 18:00 PM</span>
+<button class="p-2 bg-tertiary text-white rounded-lg active-scale">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<!-- Caution Alert Card -->
+<div class="bg-secondary-fixed neo-brutalist-border rounded-xl p-gutter relative overflow-hidden flex flex-col justify-between group hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+<div class="flex items-start justify-between mb-4">
+<div class="w-20 h-20 bg-secondary star-shape flex items-center justify-center neo-brutalist-border">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="air" style="font-variation-settings: 'FILL' 1;">air</span>
+</div>
+<span class="font-label-bold text-label-bold px-3 py-1 bg-on-background text-background rounded-full uppercase">Caution</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-on-secondary-fixed mb-2 uppercase tracking-tight">High Wind Advisory</h3>
+<p class="text-body-md text-on-secondary-fixed-variant mb-4">Sustained winds of 40mph. Secure outdoor objects and exercise caution while driving high-profile vehicles.</p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-bold text-label-bold opacity-70">EXPIRES: 22:30 PM</span>
+<button class="p-2 bg-secondary-container text-on-secondary-container rounded-lg active-scale neo-brutalist-border border-black">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<!-- Lightning Card -->
+<div class="bg-primary-fixed neo-brutalist-border rounded-xl p-gutter relative overflow-hidden flex flex-col justify-between group hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+<div class="flex items-start justify-between mb-4">
+<div class="w-20 h-20 bg-primary-container star-shape flex items-center justify-center neo-brutalist-border">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-label-bold text-label-bold px-3 py-1 bg-on-background text-background rounded-full uppercase">Watch</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-on-primary-fixed mb-2 uppercase tracking-tight">Thunderstorm Alert</h3>
+<p class="text-body-md text-on-primary-fixed-variant mb-4">Severe lightning detected within 10 miles. Potential for localized power outages and hail.</p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-bold text-label-bold opacity-70">EXPIRES: 16:45 PM</span>
+<button class="p-2 bg-primary text-white rounded-lg active-scale">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Information / Climate Fact Bubble -->
+<section class="mt-section-gap">
+<div class="bg-surface-container-low neo-brutalist-border rounded-xl p-8 relative">
+<div class="absolute -top-6 left-8 bg-tertiary text-white font-label-bold px-4 py-2 neo-brutalist-border uppercase">
+                    Climate Fact
+                </div>
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<p class="font-headline-lg-mobile text-tertiary uppercase italic leading-tight">"Extreme alerts have increased by 15% globally in the last decade."</p>
+<p class="text-body-md mt-4 text-on-surface-variant">Stay ahead of the curve with our predictive AI forecasting models. Preparation is your best defense against volatile conditions.</p>
+</div>
+<div class="w-full md:w-64 h-48 bg-surface-container-highest rounded-xl neo-brutalist-border flex items-center justify-center overflow-hidden">
+<img alt="Storm visualization" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9JgpfDBIVYiuyYl29kfBSpr2Wg3S0vQOSNGj9Q1cAob4pd4fq1mNW5SugDlyEheIfn2SgzU1WdyCqYq5FnIt6YQYCUWRgRiXY7bqxnSA7M8EFu7i1qakFjzEr8OJ7yv_AhMwY62x03H4-j12aYoRDSk_xbhS7neCUQ5AgJeawNQvBWoeOcpu78lM-JAgfKDoI0vZ7H_P1Bltc_IB55mXQdUb_XONzcVwX23Tmk5X9mOH8F7KW9lOD1FSEXFLTAPAT1--Ia8qJgPU"/>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-4 bg-secondary-fixed-dim" style="clip-path: polygon(0% 100%, 5% 50%, 10% 100%, 15% 50%, 20% 100%, 25% 50%, 30% 100%, 35% 50%, 40% 100%, 45% 50%, 50% 100%, 55% 50%, 60% 100%, 65% 50%, 70% 100%, 75% 50%, 80% 100%, 85% 50%, 90% 100%, 95% 50%, 100% 100%);"></div>
+</div>
+</section>
+<!-- Subscription/Call to Action -->
+<section class="mt-section-gap mb-12">
+<div class="bg-on-background p-10 rounded-3xl flex flex-col items-center text-center">
+<h2 class="font-headline-lg text-background mb-4">NEVER BE CAUGHT OFF GUARD</h2>
+<p class="text-surface-variant max-w-xl mb-8 font-body-lg">Get real-time satellite tracking and expert meteorologist analysis directly to your devices.</p>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<button class="bg-primary-container text-white font-label-bold py-4 px-10 rounded-full hover:bg-primary transition-colors neo-brutalist-border border-primary">UPGRADE TO PRO</button>
+<button class="bg-background text-on-background font-label-bold py-4 px-10 rounded-full hover:bg-surface-container-high transition-colors neo-brutalist-border">VIEW ARCHIVE</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface border-t-2 border-outline z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high active:scale-95 transition-all no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="partly_sunny">partly_cloudy_day</span>
+<span class="font-label-bold text-[10px] uppercase">Forecast</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high active:scale-95 transition-all no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="font-label-bold text-[10px] uppercase">Radar</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-xl p-2 border-2 border-outline active:scale-95 transition-all no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-bold text-[10px] uppercase">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high active:scale-95 transition-all no-underline w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-[10px] uppercase">Settings</span>
+</a>
+</nav>
+<script>
+        document.querySelectorAll('.active-scale').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('scale-90');
+                setTimeout(() => this.classList.remove('scale-90'), 100);
+            });
+        });
+    </script>
+</body></html>
+
+<!-- Settings (Final) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - WORLD WEATHER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&amp;family=Bricolage+Grotesque:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffafa6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-container": "#7f3d36",
+                        "on-secondary-fixed-variant": "#574500",
+                        "outline": "#6f7974",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#73342d",
+                        "on-primary-fixed-variant": "#00513c",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#005c44",
+                        "secondary-container": "#fed65b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-tint": "#1b6b52",
+                        "primary": "#004230",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface-variant": "#3f4944",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#a6f2d2",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#002116",
+                        "outline-variant": "#bec9c2",
+                        "on-tertiary-fixed": "#3b0907",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-fixed": "#ffe088",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#8bd5b7",
+                        "on-primary-container": "#87d2b3",
+                        "tertiary": "#622721",
+                        "primary-fixed-dim": "#8bd5b7",
+                        "secondary": "#735c00",
+                        "surface-container-low": "#f6f3f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "section-gap": "40px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "label-bold": ["Hanken Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .jagged-bottom {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 95% 100%, 90% 90%, 85% 100%, 80% 90%, 75% 100%, 70% 90%, 65% 100%, 60% 90%, 55% 100%, 50% 90%, 45% 100%, 40% 90%, 35% 100%, 30% 90%, 25% 100%, 20% 90%, 15% 100%, 10% 90%, 5% 100%, 0% 90%);
+        }
+        .star-shape {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .neo-brutal-button {
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .neo-brutal-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1) !important;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32 font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-outline z-50 sticky top-0">
+<div class="flex justify-between items-center px-container-margin py-4 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:translate-x-0.5 hover:translate-y-0.5 transition-transform active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-xl text-[24px] uppercase tracking-tighter text-primary">WORLD WEATHER</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:translate-x-0.5 hover:translate-y-0.5 transition-transform active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin py-gutter lg:py-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Panel: Profile Quick View -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low border-2 border-outline p-6 rounded-xl">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-4xl text-on-primary-container" data-icon="person">person</span>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Weather Expert</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Global Premium Member</p>
+</div>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-fixed p-4 rounded-lg border-2 border-outline jagged-bottom mb-4">
+<p class="font-label-bold text-[12px] uppercase mb-1">Status</p>
+<p class="font-body-lg text-body-lg font-bold">Active &amp; Verified</p>
+</div>
+</div>
+<!-- Decorative Asset -->
+<div class="relative h-48 rounded-xl bg-tertiary-fixed/30 border-2 border-outline overflow-hidden flex items-center justify-center">
+<div class="star-shape w-32 h-32 flex items-center justify-center bg-tertiary">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="font-label-bold text-label-bold text-on-surface text-center">PREMIUM ANALYTICS ENABLED</p>
+</div>
+</div>
+</div>
+<!-- Right Panel: Settings Controls -->
+<div class="lg:col-span-8 space-y-8">
+<section>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-6 border-b-4 border-primary inline-block">Settings</h3>
+<div class="space-y-4">
+<!-- Units Setting -->
+<div class="bg-surface p-6 border-2 border-outline rounded-xl flex justify-between items-center hover:bg-surface-container-high transition-colors">
+<div>
+<h4 class="font-label-bold text-label-bold uppercase text-on-surface">Units</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Metric (Celsius, km/h)</p>
+</div>
+<div class="flex bg-surface-container p-1 rounded-full border-2 border-outline">
+<button class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-label-bold text-label-bold">Metric</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold text-label-bold">Imperial</button>
+</div>
+</div>
+<!-- Account Setting -->
+<div class="bg-surface p-6 border-2 border-outline rounded-xl flex justify-between items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-fixed flex items-center justify-center border-2 border-outline rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold uppercase text-on-surface">Account</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Update password and email</p>
+</div>
+</div>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Notifications Setting -->
+<div class="bg-surface p-6 border-2 border-outline rounded-xl flex justify-between items-center hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-fixed/50 flex items-center justify-center border-2 border-outline rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed" data-icon="notifications">notifications</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold uppercase text-on-surface">Notifications</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Alerts for severe conditions</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-black after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-black after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary-container border-2 border-outline"></div>
+</label>
+</div>
+<!-- Privacy Setting -->
+<div class="bg-surface p-6 border-2 border-outline rounded-xl flex justify-between items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border-2 border-outline rounded-lg">
+<span class="material-symbols-outlined text-on-surface" data-icon="privacy_tip">privacy_tip</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold uppercase text-on-surface">Privacy</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Location and data usage</p>
+</div>
+</div>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- About Setting -->
+<div class="bg-surface p-6 border-2 border-outline rounded-xl flex justify-between items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border-2 border-outline rounded-lg">
+<span class="material-symbols-outlined text-on-surface" data-icon="info">info</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold uppercase text-on-surface">About</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Version 2.4.0</p>
+</div>
+</div>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<div class="pt-8">
+<button class="w-full neo-brutal-button bg-primary-container text-on-primary-container py-6 rounded-xl border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-wider flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-3xl" data-icon="save">save</span>
+                        Save Changes
+                    </button>
+<p class="text-center font-body-md text-body-md text-on-surface-variant mt-4">Last synced: Just now</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface border-t-2 border-outline flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-95 w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="partly_sunny">partly_cloudy_day</span>
+<span class="font-label-bold text-[10px] uppercase">Forecast</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-95 w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="font-label-bold text-[10px] uppercase">Radar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-95 w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-bold text-[10px] uppercase">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-xl p-2 border-2 border-outline active:scale-95 transition-all w-full mx-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-bold text-[10px] uppercase">Settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for toggles and buttons
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const parent = e.target.closest('div');
+                if (e.target.checked) {
+                    console.log('Setting enabled');
+                } else {
+                    console.log('Setting disabled');
+                }
+            });
+        });
+
+        // Simple click effect for navigation items
+        document.querySelectorAll('nav a').forEach(item => {
+            item.addEventListener('click', (e) => {
+                // visual feedback
+            });
+        });
+    </script>
+</body></html>
+
+<!-- Climate Map (Updated) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>World Weather - Climate Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffafa6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-container": "#7f3d36",
+                        "on-secondary-fixed-variant": "#574500",
+                        "outline": "#6f7974",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#73342d",
+                        "on-primary-fixed-variant": "#00513c",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#005c44",
+                        "secondary-container": "#fed65b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-tint": "#1b6b52",
+                        "primary": "#004230",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface-variant": "#3f4944",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#a6f2d2",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#002116",
+                        "outline-variant": "#bec9c2",
+                        "on-tertiary-fixed": "#3b0907",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-fixed": "#ffe088",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#8bd5b7",
+                        "on-primary-container": "#87d2b3",
+                        "tertiary": "#622721",
+                        "primary-fixed-dim": "#8bd5b7",
+                        "secondary": "#735c00",
+                        "surface-container-low": "#f6f3f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "section-gap": "40px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "label-bold": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "18px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .jagged-btn {
+            clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+        }
+        .jagged-bubble {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 85% 85%, 80% 100%, 75% 85%, 0% 85%);
+        }
+        .star-polygon {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        @keyframes pulse-heat {
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+            100% { opacity: 0.4; transform: scale(1); }
+        }
+        .animate-heat {
+            animation: pulse-heat 6s infinite ease-in-out;
+        }
+        @keyframes marker-ripple {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        .ripple::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            animation: marker-ripple 2s infinite;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 z-50 border-b-2 border-outline">
+<div class="flex justify-between items-center px-container-margin py-4 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:translate-x-0.5 hover:translate-y-0.5 transition-transform active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-xl text-headline-xl uppercase tracking-tighter text-primary">WORLD WEATHER</h1>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-bold text-label-bold text-primary transition-all" href="#">Forecast</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant transition-all" href="#">Radar</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant transition-all" href="#">Alerts</a>
+</div>
+<button class="text-primary hover:translate-x-0.5 hover:translate-y-0.5 transition-transform active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<!-- Main Content: Climate Map Canvas -->
+<main class="flex-grow relative w-full h-full overflow-hidden bg-surface-dim">
+<!-- Interactive Map Container -->
+<div class="absolute inset-0 z-0">
+<img alt="Global Climate Map" class="w-full h-full object-cover filter saturate-[0.6] contrast-[1.2]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIoSjIVLtI39v9rF4UBVQHfHbPGamm3nQKxhki8mtspCrvAka0icTqqyAS4JNO63ZoalbzoOtW7pGG_feqH1h-HXAuoiyEDnHxDLo9Jcz6Mgh_UKml-4afafEBflyFgLc8Zemx1GbGeeZC1wOjtMGx5Av9E1QvpMdL-yu78qHF4qHH6z4_5Y9RBIhgq8k0a7jraAsxjJju3YSXvUYzOxN8V2Pjaov5of1dRlrzbaPWYS11UKlMrlRvFvuMHKgPUc8RkS-3qZPZCfY"/>
+<!-- Dynamic Heatmap Overlays -->
+<div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-50 animate-heat" style="background: radial-gradient(circle at 20% 30%, #ba1a1a 0%, transparent 40%), 
+                            radial-gradient(circle at 80% 50%, #ba1a1a 0%, transparent 45%),
+                            radial-gradient(circle at 50% 10%, #745c00 0%, transparent 30%);">
+</div>
+<!-- Global Critical Zone Markers -->
+<div class="absolute top-[45%] left-[25%] group cursor-pointer z-10">
+<div class="w-4 h-4 bg-error rounded-full ripple relative"></div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-surface p-2 border-2 border-outline rounded hidden group-hover:block whitespace-nowrap">
+<span class="text-[10px] font-black uppercase text-error">Critical Wildfire</span>
+<p class="text-[12px] font-bold">Amazon Basin</p>
+</div>
+</div>
+<div class="absolute top-[65%] left-[75%] group cursor-pointer z-10">
+<div class="w-4 h-4 bg-tertiary rounded-full ripple relative text-tertiary"></div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-surface p-2 border-2 border-outline rounded hidden group-hover:block whitespace-nowrap">
+<span class="text-[10px] font-black uppercase text-tertiary">Sea Level Monitoring</span>
+<p class="text-[12px] font-bold">Pacific Islands</p>
+</div>
+</div>
+<div class="absolute top-[15%] left-[50%] group cursor-pointer z-10">
+<div class="w-4 h-4 bg-on-primary-container rounded-full ripple relative text-on-primary-container"></div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-surface p-2 border-2 border-outline rounded hidden group-hover:block whitespace-nowrap">
+<span class="text-[10px] font-black uppercase text-primary">Ice Shelf Fracture</span>
+<p class="text-[12px] font-bold">Arctic Circle</p>
+</div>
+</div>
+</div>
+<!-- Search & Tools HUD -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 w-full max-w-2xl px-container-margin z-20">
+<div class="bg-surface border-2 border-outline p-2 flex items-center gap-3 rounded-xl">
+<span class="material-symbols-outlined text-outline ml-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-label-bold text-on-surface placeholder:text-outline-variant" placeholder="Search global climate data..." type="text"/>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold hover:bg-primary-container transition-colors">LOCATE</button>
+</div>
+</div>
+<!-- Layer Toggle Sidebar -->
+<aside class="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20">
+<div class="bg-surface border-2 border-outline p-2 rounded-2xl flex flex-col gap-2">
+<button class="flex flex-col items-center justify-center w-16 h-16 rounded-xl transition-all bg-primary text-on-primary border-2 border-outline" id="layer-temp" onclick="selectLayer('temp')">
+<span class="material-symbols-outlined" data-icon="thermostat">thermostat</span>
+<span class="text-[10px] font-bold mt-1 uppercase">Temp</span>
+</button>
+<button class="flex flex-col items-center justify-center w-16 h-16 rounded-xl transition-all text-on-surface-variant hover:bg-surface-container-high" id="layer-wind" onclick="selectLayer('wind')">
+<span class="material-symbols-outlined" data-icon="air">air</span>
+<span class="text-[10px] font-bold mt-1 uppercase">Wind</span>
+</button>
+<button class="flex flex-col items-center justify-center w-16 h-16 rounded-xl transition-all text-on-surface-variant hover:bg-surface-container-high" id="layer-rain" onclick="selectLayer('rain')">
+<span class="material-symbols-outlined" data-icon="rainy">rainy</span>
+<span class="text-[10px] font-bold mt-1 uppercase">Rain</span>
+</button>
+</div>
+<!-- Return Button -->
+<button class="jagged-btn bg-tertiary-container text-on-tertiary-container border-2 border-outline px-4 py-8 font-label-bold flex items-center justify-center hover:translate-x-1 transition-transform group">
+<span class="material-symbols-outlined mr-2 group-hover:-translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span class="vertical-text uppercase tracking-widest text-xs font-black" style="writing-mode: vertical-rl;">Dashboard</span>
+</button>
+</aside>
+<!-- Real-time Global Climate Metrics Sidebar (Desktop Right) -->
+<aside class="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col gap-4 z-20 w-64">
+<div class="bg-surface border-2 border-outline p-4 rounded-2xl shadow-lg">
+<h3 class="font-label-bold text-[10px] text-outline uppercase mb-4 tracking-widest">Global Metrics</h3>
+<div class="space-y-4">
+<div class="border-b border-outline-variant pb-2">
+<p class="text-[10px] font-black text-tertiary uppercase">Global Avg Temp</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-black text-on-surface">15.9°C</span>
+<span class="text-xs text-error font-bold">+1.2°</span>
+</div>
+</div>
+<div class="border-b border-outline-variant pb-2">
+<p class="text-[10px] font-black text-primary uppercase">CO2 Concentration</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-black text-on-surface">421</span>
+<span class="text-[10px] font-bold text-outline">PPM</span>
+</div>
+</div>
+<div class="pb-2">
+<p class="text-[10px] font-black text-on-secondary-container uppercase">Arctic Ice Area</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-black text-on-surface">14.2</span>
+<span class="text-[10px] font-bold text-outline">M KM²</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Legend & Stats Bottom Left -->
+<div class="absolute bottom-10 left-6 z-20 flex flex-col gap-4">
+<!-- Legend -->
+<div class="bg-surface border-2 border-outline p-4 rounded-xl max-w-xs">
+<h4 class="font-label-bold text-xs uppercase mb-3 text-outline">Anomaly Intensity (°C)</h4>
+<div class="h-4 w-full rounded-full bg-gradient-to-r from-blue-700 via-surface to-error mb-2"></div>
+<div class="flex justify-between text-[10px] font-black">
+<span>-5.0</span>
+<span>0.0</span>
+<span>+5.0</span>
+</div>
+</div>
+<!-- Climate Fact Bubble -->
+<div class="jagged-bubble bg-secondary-fixed border-2 border-secondary p-4 w-64 pr-8">
+<p class="font-label-bold text-on-secondary-fixed-variant leading-tight">
+<span class="text-secondary font-black block text-sm mb-1 uppercase">CLIMATE ANOMALY</span>
+                    Arctic temperatures are currently <span class="underline">4.2°C</span> above the 30-year average.
+                </p>
+</div>
+</div>
+<!-- Mobile Data HUD -->
+<div class="lg:hidden absolute bottom-24 right-6 left-6 z-20 grid grid-cols-2 gap-2">
+<div class="bg-surface border-2 border-outline p-3 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="co2">co2</span>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase leading-none">CO2 PPM</p>
+<p class="text-lg font-black leading-none">421</p>
+</div>
+</div>
+<div class="bg-surface border-2 border-outline p-3 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="thermostat">thermostat</span>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase leading-none">Avg Temp</p>
+<p class="text-lg font-black leading-none">15.9°C</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface border-t-2 border-outline flex justify-around items-center px-4 py-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="partly_sunny">partly_cloudy_day</span>
+<span class="font-label-bold text-[10px] uppercase">Forecast</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl p-2 border-2 border-outline active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="font-label-bold text-[10px] uppercase">Radar</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-bold text-[10px] uppercase">Alerts</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-[10px] uppercase">Settings</span>
 </button>
 </nav>
 <script>
-        // Micro-interactions and small parallax for the hero temperature
-        document.addEventListener('mousemove', (e) => {
-            const heroTemp = document.querySelector('.text-display-lg');
-            if(heroTemp) {
-                const x = (window.innerWidth / 2 - e.pageX) / 50;
-                const y = (window.innerHeight / 2 - e.pageY) / 50;
-                heroTemp.style.transform = `translate(${x}px, ${y}px)`;
-            }
+        function selectLayer(layer) {
+            const layers = ['temp', 'wind', 'rain'];
+            layers.forEach(l => {
+                const btn = document.getElementById(`layer-${l}`);
+                if (l === layer) {
+                    btn.classList.add('bg-primary', 'text-on-primary', 'border-2', 'border-outline');
+                    btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-on-primary', 'border-2', 'border-outline');
+                    btn.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+                }
+            });
+
+            const mapImg = document.querySelector('main img');
+            mapImg.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                mapImg.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'translate(2px, 2px)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = '';
+            });
         });
     </script>
 </body></html>

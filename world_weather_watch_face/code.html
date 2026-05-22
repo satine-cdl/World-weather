@@ -143,19 +143,19 @@
 </svg>
 <!-- Weather Icon (Above Center) -->
 <div class="mt-8 flex flex-col items-center gap-1">
-<span class="material-symbols-outlined text-[48px] text-primary" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+<span id="weatherIconFace" class="material-symbols-outlined text-[48px] text-primary" data-icon="partly_sunny" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
 </div>
 <!-- Center Temperature (Main Anchor) -->
 <div class="flex flex-col items-center justify-center -mt-4">
-<h1 class="font-display-lg text-display-lg text-on-surface tracking-tighter leading-none select-none">18°C</h1>
-<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest mt-1">London</p>
+<h1 id="temperatureFace" class="font-display-lg text-display-lg text-on-surface tracking-tighter leading-none select-none">18°C</h1>
+<p id="locationLabel" class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest mt-1">London</p>
 </div>
 <!-- Bottom Section: Alerts/UV Index -->
 <div class="flex flex-col items-center gap-2 mb-2">
 <!-- Jagged Star UV Indicator -->
 <div class="relative flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
 <div class="star-12 w-16 h-16 bg-[#E36CA4] flex items-center justify-center pulse">
-<span class="font-headline-lg text-white font-black">6</span>
+<span id="uvIndexValue" class="font-headline-lg text-white font-black">6</span>
 </div>
 <div class="absolute -bottom-6 opacity-80">
 <span class="font-label-bold text-[10px] uppercase text-secondary font-black tracking-tighter">UV Index</span>
@@ -165,11 +165,11 @@
 <!-- Side Complications (Decorative/Informational) -->
 <div class="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col items-center">
 <span class="material-symbols-outlined text-primary-container text-xl" data-icon="air">air</span>
-<span class="font-label-bold text-[11px]">12km/h</span>
+<span id="windSpeedValue" class="font-label-bold text-[11px]">12km/h</span>
 </div>
 <div class="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-center">
 <span class="material-symbols-outlined text-secondary text-xl" data-icon="water_drop">water_drop</span>
-<span class="font-label-bold text-[11px]">64%</span>
+<span id="humidityValue" class="font-label-bold text-[11px]">64%</span>
 </div>
 </div>
 <!-- Watch Buttons (Mockup) -->
@@ -189,6 +189,134 @@
 <!-- Image Logic Placeholders (If needed for background details, though this is primarily vector) -->
 <!-- Since the requirement is Watch Face, I've used pure Tailwind/CSS for the geometry to ensure "Clean" aesthetic -->
 <script>
+        const weatherCodeMap = {
+            0: { icon: 'sunny', description: 'Clear sky' },
+            1: { icon: 'partly_cloudy_day', description: 'Mainly clear' },
+            2: { icon: 'partly_cloudy_day', description: 'Partly cloudy' },
+            3: { icon: 'partly_cloudy_day', description: 'Overcast' },
+            45: { icon: 'foggy', description: 'Fog' },
+            48: { icon: 'foggy', description: 'Depositing rime fog' },
+            51: { icon: 'rainy', description: 'Light drizzle' },
+            53: { icon: 'rainy', description: 'Moderate drizzle' },
+            55: { icon: 'rainy', description: 'Dense drizzle' },
+            56: { icon: 'rainy', description: 'Light freezing drizzle' },
+            57: { icon: 'rainy', description: 'Dense freezing drizzle' },
+            61: { icon: 'rainy', description: 'Slight rain' },
+            63: { icon: 'rainy', description: 'Moderate rain' },
+            65: { icon: 'rainy', description: 'Heavy rain' },
+            66: { icon: 'rainy', description: 'Light freezing rain' },
+            67: { icon: 'rainy', description: 'Heavy freezing rain' },
+            71: { icon: 'snowing', description: 'Slight snow fall' },
+            73: { icon: 'snowing', description: 'Moderate snow fall' },
+            75: { icon: 'snowing', description: 'Heavy snow fall' },
+            77: { icon: 'snowing', description: 'Snow grains' },
+            80: { icon: 'rainy', description: 'Slight rain showers' },
+            81: { icon: 'rainy', description: 'Moderate rain showers' },
+            82: { icon: 'rainy', description: 'Violent rain showers' },
+            85: { icon: 'snowing', description: 'Slight snow showers' },
+            86: { icon: 'snowing', description: 'Heavy snow showers' },
+            95: { icon: 'thunderstorm', description: 'Thunderstorm' },
+            96: { icon: 'thunderstorm', description: 'Thunderstorm with hail' },
+            99: { icon: 'thunderstorm', description: 'Severe thunderstorm' }
+        };
+
+        function getWeatherIcon(code) {
+            return weatherCodeMap[code]?.icon || 'partly_cloudy_day';
+        }
+
+        function getWeatherDescription(code) {
+            return weatherCodeMap[code]?.description || 'Clear skies';
+        }
+
+        function extractHourlyValue(hourly, time, key) {
+            if (!hourly || !hourly.time || !hourly[key]) return null;
+            const index = hourly.time.indexOf(time);
+            return index >= 0 ? hourly[key][index] : null;
+        }
+
+        async function reverseGeocode(lat, lon) {
+            const url = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&language=en&count=1`;
+            const response = await fetch(url);
+            if (!response.ok) return null;
+            const data = await response.json();
+            return data.results?.[0] || null;
+        }
+
+        async function fetchWeather(lat, lon, timezone = 'auto') {
+            const params = new URLSearchParams({
+                latitude: lat,
+                longitude: lon,
+                current_weather: 'true',
+                hourly: 'relativehumidity_2m,visibility,uv_index',
+                timezone
+            });
+            const url = `https://api.open-meteo.com/v1/forecast?${params.toString()}`;
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Unable to fetch weather data.');
+            }
+            return response.json();
+        }
+
+        function updateWatchFace(location, weatherData) {
+            const iconEl = document.getElementById('weatherIconFace');
+            const tempEl = document.getElementById('temperatureFace');
+            const locationEl = document.getElementById('locationLabel');
+            const uvEl = document.getElementById('uvIndexValue');
+            const windEl = document.getElementById('windSpeedValue');
+            const humidityEl = document.getElementById('humidityValue');
+
+            const current = weatherData.current_weather;
+            const humidity = extractHourlyValue(weatherData.hourly, current.time, 'relativehumidity_2m');
+            const visibility = extractHourlyValue(weatherData.hourly, current.time, 'visibility');
+            const uvIndex = extractHourlyValue(weatherData.hourly, current.time, 'uv_index');
+
+            if (iconEl) {
+                iconEl.textContent = getWeatherIcon(current.weathercode);
+                iconEl.dataset.icon = iconEl.textContent;
+            }
+            if (tempEl) tempEl.textContent = `${Math.round(current.temperature)}°C`;
+            if (locationEl) {
+                const place = location?.name || 'Current location';
+                const country = location?.country ? `, ${location.country}` : '';
+                locationEl.textContent = `${place}${country}`;
+            }
+            if (uvEl) uvEl.textContent = uvIndex != null ? Math.round(uvIndex) : '—';
+            if (windEl) windEl.textContent = `${Math.round(current.windspeed)} km/h`;
+            if (humidityEl) humidityEl.textContent = humidity != null ? `${Math.round(humidity)}%` : '—';
+
+            const description = getWeatherDescription(current.weathercode);
+            if (iconEl) iconEl.setAttribute('aria-label', description);
+        }
+
+        function showGeolocationError(message) {
+            console.warn(message);
+        }
+
+        async function initWeatherFace() {
+            if (!navigator.geolocation) {
+                showGeolocationError('Geolocation is not available in this browser.');
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                try {
+                    const { latitude, longitude } = position.coords;
+                    const location = await reverseGeocode(latitude, longitude);
+                    const weatherData = await fetchWeather(latitude, longitude);
+                    updateWatchFace(location, weatherData);
+                } catch (error) {
+                    showGeolocationError(error.message || 'Unable to load current weather.');
+                }
+            }, (error) => {
+                showGeolocationError(error.message || 'Unable to obtain your location.');
+            }, {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 60_000
+            });
+        }
+
         // Micro-interactions for the watch face
         document.addEventListener('DOMContentLoaded', () => {
             const timeEl = document.querySelector('.text-primary.tracking-widest');
@@ -200,6 +328,8 @@
                 const minutes = String(now.getMinutes()).padStart(2, '0');
                 if (timeEl) timeEl.textContent = `${hours}:${minutes}`;
             }, 1000);
+
+            initWeatherFace();
 
             // Pulse effect for UV star on click
             const uvStar = document.querySelector('.star-12');
